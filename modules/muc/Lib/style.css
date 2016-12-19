@@ -1,0 +1,80 @@
+.ajax-loader {
+    position: absolute;
+    top: 0; bottom:0; left: 0; right:0;
+    margin: auto;
+    background: rgba(255, 255, 255, .8)
+    	url(images/ajax-loader.gif)
+    	center
+    	no-repeat;
+}
+
+.modal-container {
+    position: relative;
+    width:100%;
+}
+	
+.modal-overlay {
+    position: absolute;
+    top: 0; bottom:0; left: 0; right:0;
+    margin: auto;
+    background: rgba(255, 255, 255, .8) center;
+}
+
+.modal-adjust {
+	width: 94%; left:3%; /* (100%-width)/2 */
+	margin-left:auto; margin-right:auto;
+	overflow-y: hidden;
+}
+
+.modal-adjust .modal-body {
+	max-height: none;
+	overflow-y: auto;
+}
+
+.info {
+	position: relative;
+	height:20px; width:20px;
+	margin-top:auto; margin-bottom:auto;
+	display: inline-block;
+	background: url(images/info-icon.png);
+    background-repeat: no-repeat;
+	background-size: contain;
+	cursor:pointer;
+}
+
+.info .info-text {
+    visibility: hidden;
+    width: 450px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position of the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in the tooltip */
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.info .info-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 13%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.info:hover .info-text {
+    visibility: visible;
+    opacity: 1;
+}

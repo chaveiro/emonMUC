@@ -1,0 +1,5 @@
+{
+	"description":
+		"This driver implements the communication with smart meters over the IEC 62056 DLMS/COSEM protocol.</br>
+		The DLMS/COSEM driver uses the client library developed by the jDLMS project. Currently, the DLMS/COSEM driver supports communication via HDLC and TCP/IP using Logical Name Referencing to retrieve values from the device."
+}

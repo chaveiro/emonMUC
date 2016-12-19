@@ -1,0 +1,92 @@
+[
+	{
+		"id": "loggingInterval",
+		"name": "Logging interval",
+		"description": "Time difference until this channel is logged again.</br>
+			Setting the time interval to -1 or omitting the logging interval parameter disables logging on this channel.",
+		"default": "-1",
+		"type": "time",
+		"required": "false"
+	},
+	{
+		"id": "loggingTimeOffset",
+		"name": "Logging time offset",
+		"default": "0",
+		"type": "time",
+		"required": "false"
+	},
+	{
+		"id": "listening",
+		"name": "Listening",
+		"description": "Determines if this channel shall passively listen for incoming value changes from the driver.",
+		"default": "false",
+		"type": "boolean",
+		"required": "false"
+	},
+	{
+		"id": "samplingInterval",
+		"name": "Sampling interval",
+		"description": "Time interval between two attempts to read this channel.</br>
+			Setting the time interval to -1 or omitting the samling interval parameter disables sampling on this channel.",
+		"default": "-1",
+		"type": "time",
+		"required": "false"
+	},
+	{
+		"id": "samplingTimeOffset",
+		"name": "Sampling time offset",
+		"default": "0",
+		"type": "time",
+		"required": "false"
+	},
+	{
+		"id": "samplingGroup",
+		"name": "Sampling group",
+		"description": "For grouping channels. All channels with the same samplingGroup and same samplingInterval are in one group.</br>
+			The purpose of samplingGroups is to improve the drivers performance – if possible.",
+		"type": "text",
+		"required": "false"
+	},
+	{
+		"id": "unit",
+		"name": "Unit",
+		"description": "Physical unit of this channel.</br>
+			For information only (info can be accessed by an app or driver).",
+		"type": "text",
+		"required": "false"
+	},
+	{
+		"id": "valueType",
+		"name": "Value type",
+		"description": "Data type of the channel.</br>
+			Data loggers may use this setting. Driver implementations do NOT receive this settings.",
+		"default": "DOUBLE",
+		"type": "text",
+		"required": "false"
+	},
+	{
+		"id": "valueLength",
+		"name": "Value length",
+		"description": "Only used if valueType == BYTE_ARRAY or STRING.</br>
+			Determines the maximum length of the byte array or string.",
+		"default": "DOUBLE",
+		"type": "text",
+		"required": "false"
+	},
+	{
+		"id": "isReadable",
+		"name": "Readable",
+		"description": "For information only (info can be accessed by an app or driver).",
+		"default": "false",
+		"type": "boolean",
+		"required": "false"
+	},
+	{
+		"id": "isWritable",
+		"name": "Writable",
+		"description": "For information only (info can be accessed by an app or driver).",
+		"default": "false",
+		"type": "boolean",
+		"required": "false"
+	}
+]

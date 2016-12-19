@@ -1,0 +1,18 @@
+[
+	{
+		"id": "samplingTimeout",
+		"name": "Sampling timeout",
+		"description": "Time waited for a read operation to complete. Overwrites samplingTimeout of Driver.",
+		"default": "0",
+		"type": "time",
+		"required": "false"
+	},
+	{
+		"id": "connectRetryInterval",
+		"name": "Connect retry interval",
+		"description": "Time waited until a failed connection attempt is repeated.",
+		"default": "60000",
+		"type": "time",
+		"required": "false"
+	}
+]

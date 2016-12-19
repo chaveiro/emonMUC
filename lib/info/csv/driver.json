@@ -1,0 +1,5 @@
+{
+	"description":
+		"The CSV Driver reads out values from configured files. 
+		Several columns from different CSV files may be read line by line or by index."
+}

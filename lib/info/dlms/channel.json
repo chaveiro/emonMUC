@@ -1,0 +1,39 @@
+{
+	"description": 
+		"A channel references a single attribute or method of a COSEM Interface Object.</br>
+		To uniquely identify an Objects attribute or method, the <em>Class ID</em>, the <em>Logical Name</em> and <em>Attribute</em> or <em>Method</em> ID is needed.</br></br>
+
+		For a list of all valid Logical Names and the corresponding COSEM Interface Class, consult the list of standardized OBIS codes administered by the DLMS UA <a href='http://dlms.com/documentation/listofstandardobiscodesandmaintenanceproces/index.html'>here</a>.",
+
+	"address": [
+		{
+			"id": "class-id",
+			"name": "Class ID",
+			"description": "The COSEM class ID is a 16 bit unsigned number and can be found in the list of standardized OBIS codes.",
+			"type": "value",
+			"required": "true"
+		},
+		{
+			"id": "instance-id",
+			"name": "Logical Name",
+			"description": 
+				"A logical name is a 6 byte OBIS code as it is defined by the DLMS UA. It sometimes also called <em>instance ID</em>.</br>
+				It can be written as hexadecimal number (e.g. 0101010800FF) or as a series of six decimal numbers separated by periods A-B:C.D.E*F.</br></br>
+				
+				<b>Example:</b>  The clock of a smart meter is always reachable under the address [0, 0, 1, 0, 0, 255].",
+			"type": "text",
+			"required": "true"
+		},
+		{
+			"id": "attribute-id",
+			"name": "Attribute/Method ID",
+			"description":
+				"The COSEM attribute/method ID is a 16 bit unsigned number and depends on the class ID.</br>
+				It can be extracted best by consulting the document IEC 62056-6-2 or the Blue Book from the DLMS UA.</br>
+				Usually the first attribute (attribute ID 1) of an COSEM interface class (IC) is the logical name of the object. Further attributes refer to actual data (see section 4.5 of IEC 62056-6-2).",
+			"type": "value",
+			"required": "true"
+		}
+	],
+	"addressSyntax": { "listDelimiter": "/" }
+}

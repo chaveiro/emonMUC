@@ -1,0 +1,18 @@
+[
+	{
+		"id": "samplingTimeout",
+		"name": "Sampling timeout",
+		"description": "Default time waited for a read operation to complete if the device doesn’t set a samplingTimeout on its own.",
+		"default": "0",
+		"type": "time",
+		"required": "false"
+	},
+	{
+		"id": "connectRetryInterval",
+		"name": "Connect retry interval",
+		"description": "Default time waited until a failed connection attempt is repeated.",
+		"default": "60000",
+		"type": "time",
+		"required": "false"
+	}
+]

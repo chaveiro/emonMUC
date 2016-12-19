@@ -1,0 +1,54 @@
+{
+	"name": "Demonstration",
+	"description": "Automatic inputs and feeds creation for demonstration devices.",
+	"inputs": [
+		{
+			"name": "DEVICE_iload",
+			"description": "Consumption intensity",
+			"processList": [
+								{
+								"process": "1",
+								"arguments": {"type": "ProcessArg::FEEDID", "value": "DEVICE_iload" }
+								},
+								{
+								"process": "29",
+								"arguments": {"type": "ProcessArg::FEEDID", "value": "DEVICE_pload" }
+								}
+							]
+		},
+		{
+			"name": "DEVICE_pload",
+			"description": "Consumption power",
+			"processList": ""
+		}
+	],
+
+	"feeds": [
+		{
+			"name": "DEVICE_iload",
+			"type": "DataType::REALTIME",
+			"engine": "Engine::MYSQL",
+			"interval": "5"
+		},
+		{
+			"name": "DEVICE_pload",
+			"type": "DataType::REALTIME",
+			"engine": "Engine::MYSQL"
+			},
+		{
+			"name": "DEVICE_virtual",
+			"type": "DataType::REALTIME",
+			"engine": "Engine::VIRTUALFEED",
+			"processList": [
+								{
+								"process": "53",
+								"arguments": {"type": "ProcessArg::FEEDID", "value": "fILoad" }
+								},
+								{
+								"process": "2",
+								"arguments": {"type": "ProcessArg::VALUE", "value": "2" }
+								}
+							]
+			}
+	]
+}

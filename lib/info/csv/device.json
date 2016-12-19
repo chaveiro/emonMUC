@@ -1,0 +1,60 @@
+{
+	"description":
+		"The devices of the CSV driver each represent specific files. 
+		Each device may contain several columns, addressed by their headers, and is read either line by line or by a defined index",
+
+	"address": [
+		{
+			"id": "path",
+			"name": "CSV file path",
+			"description":
+				"The systems path to the CSV file.</br></br>
+				
+				<b>Example:</b> /home/usr/bin/openmuc/csv/meter.csv",
+			"type": "text",
+			"required": "true"
+		}
+	],
+	"addressSyntax": { "listDelimiter": ";" },
+
+	"settings": [
+		{
+			"id": "samplingmode",
+			"name": "Sampling mode",
+			"description":
+				"The sampling mode configures the drivers method to read the CSV file:</br></br>
+				
+				<b>Modes:</b>
+				<ol>
+					<li><b>unixtimestamp</b>: Find the line closest to the sampling timestamp in the <em>unixtimestamp</em> column.</li>
+					<li><b>hhmmss</b>: Find the line closest to the sampling times hours, minutes and seconds in the <em>hhmmss</em> column.</li>
+					<li><b>line</b>: Read the file line by line.</li>
+				</ol>",
+			"type": "text",
+			"required": "true"
+		},
+		{
+			"id": "rewind",
+			"name": "Rewind",
+			"description": "Start from the beginning of the file again, when the end was reached.",
+			"default": "true",
+			"type": "boolean",
+			"required": "false"
+		}
+	],
+	"settingsSyntax": { "keyValueSeparator": "=", "listDelimiter": ";" }, 
+	
+	"scanSettings": [
+		{
+			"id": "dir",
+			"name": "CSV files directory path",
+			"description":
+				"The systems path to the folder, containing the CSV files.</br></br>
+				
+				<b>Example:</b> /home/usr/bin/openmuc/csv/.",
+			"type": "text",
+			"required": "true"
+		}
+	],
+	"scanSettingsSyntax": { "listDelimiter": ";" }
+}

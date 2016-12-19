@@ -1,0 +1,113 @@
+{
+	"description":
+		"In DLMS/COSEM, a physical smart meter device can host several so called logical devices, of which only a single one will be connected with with DLMS/COSEM.</br>
+		Each logical device has an address in the range [0, 16383]. As an example, a meter could consist of one logical device for electricity metering at address 18 and another one for a connected gas meter at address 67.",
+	
+	"address": [
+		{
+			"id": "protocol",
+			"name": "Protocol",
+			"description": 
+				"The communication protocol used, to uniquely identify and address a physical smart meter.</br>
+				Currently, the DLMS/COSEM driver supports communication via HDLC and TCP/IP using Logical Name Referencing to retrieve values from the device.",
+			"type": "text",
+			"required": "true"
+		},
+		{
+			"id": "server-address",
+			"name": "Physical device address",
+			"description": 
+				"The physical device address to uniquely identify a physical smart meter. An optional port can be added with an additional parameter.</br>
+				Address and format depend on the used protocol.</br></br>
+
+				<b>Example:</b>
+				<ol>
+					<li><b>HDLC</b>: ttyUSB0 or ttyUSB0:16</li>
+					<li><b>TCP</b>: 16:192.168.200.25 or 16:192.168.200.25:4059</li>
+				</ol>",
+			"type": "text",
+			"required": "true"
+		},
+		{
+			"id": "server-port",
+			"name": "Physical device port",
+			"description": "The physical device address port to uniquely identify a physical smart meter.",
+			"type": "value",
+			"required": "false"
+		},
+		{
+			"id": "server-logical",
+			"name": "Logical device address",
+			"description": 
+				"The logical device address is a 16-Bit unsigned number and is needed to identify a logical device inside a smart meter.</br>
+				In most cases, there are 2 logical devices inside a smart meter with the first being a management device to get common information and data about other logical devices in this smart meter while the second logical device is the smart meter itself holding the tariff and measurement data.</br>
+				The management device has the address 1, the address of the second device is manufacturer specific but can be read from the management device. If the physical device acts as a hub for other smart meter, the number of logical devices increases accordingly.</br></br>
+
+				The logical device address is sometimes called <em>server wPort</em> or <em>server SAP</em>.",
+			"type": "text",
+			"required": "true"
+		},
+		{
+			"id": "client-logical",
+			"name": "Client ID",
+			"description": 
+				"The client ID defines the access level with which the client connects to the logical device.
+				The ID 16 is a special client ID, which refers to the <em>public client</em> for which no authentication or encryption is required.</br></br>
+				
+				It is also called <em>client SAP</em> or <em>client wPort</em>.",
+			"type": "text",
+			"required": "true"
+		}
+	],
+	"addressSyntax": { "listDelimiter": ":" },
+
+	"settings": [
+		{
+			"id": "password",
+			"name": "Password",
+			"description": "Authorization password to access the smart meter device.",
+			"type": "text",
+			"required": "false"
+		},
+		{
+			"id": "disconnect",
+			"name": "Disconnect",
+			"description": 
+				"Send a disconnect message at DLMS layer on disconnecting from device.</br>
+				Set this flag to false if the remote device is expecting the disconnect message at a lower layer (like HDLC).",
+			"default": "true",
+			"type": "boolean",
+			"required": "false"
+		},
+		{
+			"id": "handshake",
+			"name": "Handshake",
+			"description": 
+				"Use initial handshake to negotiate baud rate.</br></br>
+				Only used for HDLC connections.",
+			"default": "true",
+			"type": "boolean",
+			"required": "false"
+		},
+		{
+			"id": "baudrate",
+			"name": "Baudrate",
+			"description": 
+				"Maximum supported baud rate (0 = no maximum). If UseHandshake = false, this value will be used to communicate with the device and has to be set.</br></br>
+				Only used for HDLC connections.",
+			"type": "value",
+			"required": "false"
+		},
+		{
+			"id": "forceSingle",
+			"name": "Force single",
+			"description": 
+				"Forces every attribute to be requested individually.</br></br>
+				This option has to be enabled to support Kamstrup 382 smart meter devices.",
+			"default": "false",
+			"type": "boolean",
+			"required": "false"
+		}
+	],
+	"settingsSyntax": { "keyValueSeparator": "=", "listDelimiter": ";" }
+}
